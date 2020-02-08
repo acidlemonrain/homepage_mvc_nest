@@ -1,0 +1,54 @@
+a{
+    text-decoration: none;
+}
+button ,a{
+    background-color: transparent;
+    outline: transparent;
+    border: none;
+    cursor: pointer;
+}
+nav{
+    z-index: 999;
+    overflow: hidden;
+    padding: 10px;
+    background: #002a32;
+    height: 45px;
+}
+nav a{
+    color: #00d6d6!important;
+    margin: 0px 10px;
+    font-weight: bold;
+}
+
+.header-img{
+    height: 100px;
+    width: 100vw;
+    background-image: linear-gradient(0deg, #002a32,rgba(0,42,50,0)) ,url("/img/head.jpg");
+    background-position: top;
+}
+.text-dark{
+    color: #002a32;
+}
+hr{
+    margin: 10px 0px;
+}
+*{
+    transition: all .2s;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background: #EEE8D0;
+ 
+    overflow-x: hidden;
+    max-width: 100vw;
+}
+.card{
+    padding: 10px;
+    margin: 6px;
+}
+.container{
+    width: 90%;
+    margin: auto;
+}

@@ -1,0 +1,47 @@
+<%- include('common/header'); -%>
+<style>
+  #content p ,h1,h2,h3,h4,h5{
+      margin: 10px 0px;
+  }
+</style>
+
+
+ 
+  <h1 id="title" style="text-align: center;margin: 50px 0px">blog title</h1>
+    <small id="time"></small>
+    <hr>
+  <p id="content-html">
+      blog content
+  </p>
+ 
+
+
+
+<script>
+    function render_blog(blog) {
+  
+      document.getElementById('title').innerText = blog.title
+      document.getElementById('content-html').innerHTML = blog.html
+      document.getElementById('time').innerText = blog.gen.toLocaleString()
+    }
+
+  var url = (window.location)
+  var regex = /blog\/.*/;
+  var result = regex.exec(url)[0].substring(5);
+  fetch(server_url+'blog/find',{
+    method:'post',
+    body:JSON.stringify({
+      id:result
+    }),
+    headers: {
+      'Content-Type': 'application/json'
+    },
+  }).then(res=>{
+    res.json().then(blog=>{
+        render_blog(blog)
+    })
+  })
+
+</script>
+
+<%- include('common/footer'); -%>

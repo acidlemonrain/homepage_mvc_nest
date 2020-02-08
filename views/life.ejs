@@ -1,0 +1,87 @@
+<%- include('common/header'); -%>
+
+<div id="weibos">
+
+
+</div>
+
+<style>
+    small{
+        display: block;
+        padding: 3px;
+        background-color: #00478a5b;
+        color: rgb(255, 222, 242);
+    }
+    h4{
+        text-indent: 20px;
+        margin: 5px auto;
+    }
+    img{
+        height: 150px;
+        width: 150px;
+        margin: 5px;
+        object-fit: cover;
+
+    }
+    .images{
+        padding: 5px;
+       
+        margin: 5px;
+    }
+    .weibo{
+        border: 1px solid gray;
+        max-width: 700px;
+        border-radius: 4px;
+        margin: auto;
+        margin-bottom: 30px;
+        background: linear-gradient(150deg, rgba(0, 42, 50, 0.41), rgba(0, 42, 50, 0.349));
+        }
+
+</style>
+
+<script>
+
+function render_weibo(weibo) {
+  var weibo_ele = document.createElement('div')
+  var weibo_content_ele = document.createElement('h4')
+  var weibo_image_container_ele = document.createElement('div')
+  var weibo_time_ele = document.createElement('small')
+
+  weibo_ele.className = 'weibo'
+  weibo_image_container_ele.className = 'images'
+  var images = weibo.images.split(',')
+  var img_temp = ''
+  for(let i = 0;i<images.length;i++){
+   img_temp += `<img src="${url+'files/'+images[i]}" alt=""/>`
+  }
+  //render content
+  weibo_time_ele.innerText = '发表于 '+weibo.gen
+  weibo_content_ele.innerText = weibo.content
+  weibo_image_container_ele.innerHTML = img_temp
+  //append dom
+  weibo_ele.appendChild(weibo_time_ele)
+  weibo_ele.appendChild(weibo_content_ele)
+  weibo_ele.appendChild(weibo_image_container_ele)
+  document.getElementById('weibos').appendChild(weibo_ele)
+}
+var url = server_url
+
+    fetch(url+'weibo').then(res=>{
+      res.json().then(weibos=>{
+        for(let i =0 ;i<weibos.length;i++){
+          render_weibo(weibos[i])
+        }
+      })
+    })
+</script>
+<script src="https://unpkg.com/zooming/build/zooming.min.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    new Zooming({
+      customSize: '100%'
+    }).listen('img')
+  })
+</script>
+ 
+
+ <%- include('common/footer'); -%>

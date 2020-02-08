@@ -1,0 +1,63 @@
+<%- include('common/header'); -%>
+<h3>欢迎来到HYC的blog</h3>
+<div id="blogs">
+
+</div>
+
+
+<style>
+    .blog-list-item{
+        margin: 20px 4px;
+        padding: 20px;
+        background : linear-gradient(75deg, rgba(0, 67, 83, 0.45), rgba(0, 42, 50, 0.07));
+    }
+    .blog-list-title{
+        color: #002a32;
+        text-decoration: #002a32;
+    }
+    span{
+        margin-right: 10px;
+        background-color: rgba(0, 151, 151, 0.6);
+        border-radius: 3px;
+        padding: 3px;
+    }
+</style>
+<script>
+var blog_container = document.getElementById('blogs')
+
+//博客render函数
+    function make_blog(blog){
+      console.log(blog);
+      var tags = ''
+      blog.tags.forEach(tag=>{
+        console.log(tag);
+        tags += `<span>${tag.name}</span>`
+      })
+
+      var template = `<a href="/blog/${blog.id}"><h1 class="blog-list-title">${blog.title}</h1></a>
+<div>${tags}</div>
+<small>${blog.gen}</small>
+<p>${blog.des}</p>
+`
+      var new_blog = document.createElement('div')
+      new_blog.innerHTML = template;
+      new_blog.className='blog-list-item'
+      blog_container.appendChild(new_blog)
+    }
+
+//获取blog数据
+    fetch(server_url+'blog/get',{
+      method:'post',
+      body:{
+        relations:['tags'],
+      }
+    }).then(res=>{
+      res.json().then(blogs=>{
+        for(let i =0;i<blogs.length;i++){
+         make_blog(blogs[i])
+        }
+      })
+    })
+
+</script>
+<%- include('common/footer'); -%>

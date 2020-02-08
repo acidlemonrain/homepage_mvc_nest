@@ -1,0 +1,126 @@
+<%- include('common/header'); -%>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<div style="padding: 30vh 0;text-align: center">
+    <h1>欢迎来到HYC的个人主页</h1>
+</div>
+
+
+<div class="container">
+  <h3 class="text-dark">最新动态</h3>
+  <hr>
+
+   <div class="card">
+       <h4>广州七日游</h4>
+       <small><%= new Date()%></small>
+       <p>
+           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci aliquid, asperiores aspernatur assumenda at beatae dolorem dolorum eveniet exercitationem id itaque nesciunt odio officiis provident quaerat quod similique tenetur veniam?
+       </p>
+   </div>
+
+    <div class="card">
+        <h4>广州七日游</h4>
+        <small><%= new Date()%></small>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci aliquid, asperiores aspernatur assumenda at beatae dolorem dolorum eveniet exercitationem id itaque nesciunt odio officiis provident quaerat quod similique tenetur veniam?
+        </p>
+    </div>
+
+    <div class="card">
+        <h4>广州七日游</h4>
+        <small><%= new Date()%></small>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci aliquid, asperiores aspernatur assumenda at beatae dolorem dolorum eveniet exercitationem id itaque nesciunt odio officiis provident quaerat quod similique tenetur veniam?
+        </p>
+    </div>
+
+
+</div>
+
+
+<div class="container">
+  <h3 class="text-dark">我的应用</h3>
+  <hr>
+ 
+    <div class="my-apps">
+
+   <div class="my-app">
+      <div class="my-app-title">
+         <h3>music app</h3>
+         <div class="my-app-actions">
+           <a class="action">
+                    源码
+           </a>
+           <a class="action" href="http://106.15.183.147:5001/">
+                    demo
+           </a>
+         </div>
+      </div>
+      <div class="my-app-des">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, at.</p>
+      </div>
+    </div>
+
+   <div class="my-app">
+    <div class="my-app-title">
+       <h3>chat app</h3>
+       <div class="my-app-actions">
+        <a class="action">
+                 源码
+        </a>
+        <a class="action" href="http://106.15.183.147:5010/">
+                 demo
+        </a>
+      </div>
+    </div>
+    <div class="my-app-des">
+      <p>Lorem ipsu  
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo, temporibus?  
+        m dolor sit amet consectetur adipisicing elit. Perferendis, at.</p>
+    </div>
+  </div>
+
+
+    </div>
+  
+</div>
+<style>
+.my-apps{
+    display: flex;
+    justify-content: space-between;
+
+}
+.my-app{
+    width: 48%;
+
+}
+.my-app-title{
+    position: relative;
+    background-color:  #002a32;
+  color: brown;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.my-app-actions{
+ display: flex;
+ position: absolute;
+ bottom: 0px;
+ width: 100%;
+ justify-content: flex-end;
+}
+.my-app-des{
+    background-color: lightblue;
+    padding: 20px;
+}
+a[class='action']{
+    padding: 7px 10px;
+    color: #002a32;
+    background-color: brown;
+    margin: 3px;
+}
+</style>
+
+
+<%- include('common/footer'); -%>
+
